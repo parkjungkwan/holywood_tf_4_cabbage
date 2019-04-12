@@ -4,7 +4,7 @@ $(document).ready(()=>{
 
 });
 var main = main || {}
-main = (e=>{
+main = (()=>{
     let avg_temp, min_temp, max_temp,rain_fall;
     let init = e=>{
         avg_temp = $('#avg_temp');
@@ -12,10 +12,22 @@ main = (e=>{
         max_temp = $('#max_temp');
         rain_fall = $('#rain_fall');
     };
-    let onCreate = e=>{
+    let onCreate =()=>{
         setContentView();
     };
-    let setContentView =e=>{
+    let setContentView =()=>{
+       login();
+    };
+    let clearData = ()=>{
+        avg_temp.val('')
+        min_temp.val('')
+        rain_fall.val('')
+        rain_fall.val('')
+    };
+    let login =()=>{
+
+    };
+    let predict_price =()=>{
         $('#res_btn').click(e=>{
             e.preventDefault();
             alert('평균 기온'+avg_temp.val());
@@ -25,13 +37,7 @@ main = (e=>{
                 alert('연산결과: '+d.result)
             });*/
         });
-    };
-    let clearData = ()=>{
-        avg_temp.val('')
-        min_temp.val('')
-        rain_fall.val('')
-        rain_fall.val('')
-    };
+    }
 
 
 

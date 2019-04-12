@@ -4,6 +4,7 @@ import tensorflow as tf
 import numpy as np
 import datetime
 from pandas.io.parsers import read_csv
+from db import Database
 
 app = Flask(__name__)
 
@@ -51,7 +52,16 @@ def predict():
 
     return jsonify()
 
-
+@app.route('/login', method=['POST'])
+def login():
+    print('--------- 로그인 들어옴 -----------')
+    userid = ''
+    password = ''
+    print('아이디 {}, 비번 {}'.format())
+    db = Database()
+    row = db.login(userid, password)
+    print('회원 정보 {}'.format(row))
+    return render_template('main.html', name='')
 
 if __name__ == '__main__':
     app.run()
